@@ -5,8 +5,9 @@ RUN apk add -U --no-cache git
 
 RUN mkdir /go/src/app
 WORKDIR /go/src/app
-COPY server.go .
+COPY main.go .
 
+RUN go get -u github.com/codegangsta/gin
 RUN go get -u github.com/golang/dep/cmd/dep
 RUN dep init
 RUN dep ensure
